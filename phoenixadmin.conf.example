@@ -1,0 +1,18 @@
+name PhoenixAdmin
+
+<stacktrace>
+    verbose 1
+</stacktrace>
+
+<Model::DB>
+    <connect_info>
+        dsn DBI:mysql:database=phoenix;host=localhost
+        user db_user
+        password db_password
+        AutoCommit  1
+        RaiseError 1
+        mysql_enable_utf8 1
+        quote_char `
+        name_sep .
+    </connect_info>
+</Model::DB>
