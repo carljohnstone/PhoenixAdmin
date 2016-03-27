@@ -1,0 +1,28 @@
+#action: /user/login
+# indicator is the field that is used to test for form submission
+indicator: submit
+
+# Start listing the form elements
+elements:
+    # The first element will be a text field for the username
+    - type: Text
+      name: email
+      label: Email Address
+      constraints:
+          - Required
+
+    # The password field
+    - type: Password
+      name: password
+      label: Password
+      constraints:
+          - Required
+
+    # The Submit button
+    - type: Submit
+      name: submit
+      # The text to be displayed
+      value: Login
+      constraints:
+        type: Callback
+        message: 'Invalid email address or password'

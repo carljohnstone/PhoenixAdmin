@@ -1,0 +1,6 @@
+[% SET page_title = 'Server Error' %]
+<h1>Server Error</h1>
+
+<p>Sorry, a server error occurred whilst trying to generate the page you requested. </p>
+
+<p>A notification has been sent to the webmaster, and we will investigate the problem.</p>

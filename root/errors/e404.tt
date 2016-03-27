@@ -1,0 +1,4 @@
+[% SET page_title = 'Not Found' %]
+<h1>Not Found</h1>
+
+<p>Sorry, but no page was found at the address requested.</p>
