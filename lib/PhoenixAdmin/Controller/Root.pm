@@ -2,7 +2,7 @@ package PhoenixAdmin::Controller::Root;
 use Moose;
 use namespace::autoclean;
 
-BEGIN { extends 'Catalyst::Controller' }
+BEGIN { extends 'Catalyst::Controller::HTML::FormFu' }
 
 __PACKAGE__->config(namespace => '');
 
@@ -24,6 +24,13 @@ sub auto :Private {
     } else {
         $c->forward('login');
     }
+
+    foreach my $controller ($c->controllers) {
+        if (my $action = $c->controller($controller)->action_for('nav')) {
+            $c->forward($action);
+        }
+    }
+    $c->stash->{'nav'} = [ sort { $a->{'label'} cmp $b->{'label'} } @{$c->stash->{'nav'}} ];
 
     $c->stash->{'breadcrumb'} = [{ label => 'Home', url => $c->uri_for('/')}];
     return 1;
