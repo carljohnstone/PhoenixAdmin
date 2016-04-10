@@ -1,28 +1,60 @@
-#action: /user/login
-# indicator is the field that is used to test for form submission
-indicator: submit
+---
+auto_fieldset:
+  legend: Log in
+#auto_id: '%n'
+attributes:
+  class: form-horizontal
 
-# Start listing the form elements
 elements:
-    # The first element will be a text field for the username
-    - type: Text
-      name: email
-      label: Email Address
-      constraints:
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Email Address
+        attributes:
+          for: email
+          class: "col-sm-2 control-label"
+      - type: Text
+        name: email
+        id: email
+        constraints:
           - Required
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
 
-    # The password field
-    - type: Password
-      name: password
-      label: Password
-      constraints:
-          - Required
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Password
+        attributes:
+          for: password
+          class: "col-sm-2 control-label"
+      - type: Password
+        id: password
+        name: password
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
 
-    # The Submit button
-    - type: Submit
-      name: submit
-      # The text to be displayed
-      value: Login
-      constraints:
-        type: Callback
-        message: 'Invalid email address or password'
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Submit
+        name: submit
+        value: Log in
+        attributes:
+          class: "btn btn-default"
+        constraints:
+          type: Callback
+          message: 'Invalid email address or password'
+        container_attributes:
+          class: col-sm-offset-2 col-sm-10

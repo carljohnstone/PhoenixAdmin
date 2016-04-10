@@ -52,7 +52,7 @@ sub login :Private {
                 'email' => $login_form->param_value('email'),
                 'password' => $login_form->param_value('password')
             }) ) {
-            $c->res->redirect($c->uri_for('/'));
+            $c->res->redirect($c->request->uri);
             $c->detach;
         } else {
             $login_form->get_field('submit')->get_constraint({ type => 'Callback' })->force_errors(1);

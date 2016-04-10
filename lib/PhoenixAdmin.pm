@@ -20,7 +20,6 @@ use Catalyst qw/
     ConfigLoader
     Static::Simple
     StackTrace
-    Unicode::Encoding
     Authentication
     Authorization::Roles
     Session

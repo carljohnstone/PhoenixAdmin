@@ -1,7 +1,5 @@
-[% SET page_title = 'Login' %]
-
-<h2>Sorry you don't have permission to view this page</h2>
-
-<h3>Login</h3>
-
+[% SET page_title = 'Log in' %]
+<div class="container-fluid">
+<h1>Sorry you don't have permission to view this page</h1>
 [% login_form %]
+</div>
