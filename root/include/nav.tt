@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <p class="navbar-header">
+      <a href="/" class="navbar-brand">Phoenix Admin</a>
+    </p>
+
+
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sections <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+[%- FOREACH item IN nav -%]
+<li><a href="[% item.url %]">[% item.label %]</a></li>
+[%- END -%]
+
+</ul></li></ul>
+
+  <p class="navbar-text navbar-right">
+    You are logged in as [% c.user.firstname %] [% c.user.lastname %]
+    <a class="btn btn-danger" href="[% c.uri_for(c.controller('Root').action_for('logout')) %]">logout</a>
+  </p>
+
+  </div>
+</nav>
