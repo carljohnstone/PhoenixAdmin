@@ -1,4 +1,4 @@
-#!C:\strawberry\perl\bin\perl.exe
+#!/usr/bin/perl -w
 
 use Catalyst::ScriptRunner;
 Catalyst::ScriptRunner->run('PhoenixAdmin', 'Test');
