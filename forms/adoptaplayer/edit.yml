@@ -1,0 +1,39 @@
+---
+auto_fieldset:
+  legend: '<h3>Edit Player Adoption</h3>'
+
+elements:
+  - type: Text
+    id: id
+    name: id
+    label: ID
+    model_config:
+      read_only: 1
+    add_attributes:
+      readonly: readonly
+  - type: Checkbox
+    id: unavailable
+    name: unavailable
+    label: Make Player Unavailable
+    default: 0
+  - type: Text
+    id: home
+    name: home
+    label: Home Adopter
+  - type: Text
+    id: home_url
+    name: home_url
+    label: Home Adopter Link
+  - type: Text
+    id: away
+    name: away
+    label: Away Adopter
+  - type: Text
+    id: away_url
+    name: away_url
+    label: Away Adopter Link
+  - type: Submit
+    name: submit
+    value: Save
+filters:
+  - TrimEdges

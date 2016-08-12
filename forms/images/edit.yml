@@ -1,0 +1,48 @@
+---
+auto_fieldset:
+  legend: '<h3>Edit an Image Details</h3>'
+
+elements:
+  - type: Select
+    id: category
+    name: category
+    label: Category
+    values:
+      - 'Match Photo'
+      - 'Profile Pic'
+      - 'Team Photo'
+      - 'Logo'
+      - 'Promo'
+      - 'Other'
+  - type: Date
+    name: date
+    label: Date
+    default_natural: 'today'
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+    year:
+      less: 1
+      plus: 1
+  - type: Text
+    id: name
+    name: name
+    label: Internal Name (for searching)
+  - type: Text
+    id: alt
+    name: alt
+    label: Alt (for blind people - required)
+  - type: Text
+    id: caption
+    name: caption
+    label: Suggested Caption
+  - type: Text
+    id: credit
+    name: credit
+    label: Credit
+  - type: Submit
+    name: submit
+    value: Save
+filters: 
+  - TrimEdges

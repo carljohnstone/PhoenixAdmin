@@ -1,0 +1,25 @@
+<div class="container-fluid">
+<h3>Fixtures held recently or with outstanding results</h3>
+
+<table class="table table-striped">
+<tr>
+<th>Team</th>
+<th>Date</th>
+<th>Home or Away</th>
+<th>Opponents</th>
+<th>Result</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH fixture IN fixtures.all %]
+<tr>
+<td>[% fixture.team %]</td>
+<td>[% fixture.date.dmy('/') %]</td>
+<td>[% fixture.homeaway %]</td>
+<td>[% fixture.opponents %]</td>
+<td>[% IF fixture.have_result %][% fixture.result %] [% fixture.score %][% ELSE %]Result needed[% END %]</td>
+<td><a href="[% c.uri_for(c.controller.action_for('edit'),[fixture.id]) %]">Edit</a></td>
+</tr>
+[% END %]
+</table>
+
+</div>

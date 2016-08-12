@@ -1,0 +1,71 @@
+<h1>[% article.headline %]</h1>
+
+<h2>Manage Images</h2>
+
+<table>
+<tr>
+<th>Position</th>
+<th>ID</th>
+<th>&nbsp;</th>
+<th>Caption</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH image = article.article_images -%]
+<tr>
+<td>[% image.order %]</td>
+<td>[% image.related_image.id %]</td>
+<td><img src="[% image.related_image.url(100,100,'FFFFFF') %]" /></td>
+<td>[% image.caption | html %]</td>
+<td>
+<form method="get" action="[% c.uri_for(c.controller.action_for('edit'),[article.id, image.related_image.id ]) %]">
+<input type="submit" value="Edit" />
+</form>
+<form method="post" action="[% c.uri_for(c.controller.action_for('delete'),[article.id, image.related_image.id ]) %]">
+<input type="submit" value="Delete" />
+</form>
+</td>
+</tr>
+[%- END -%]
+</table>
+
+<form enctype="multipart/form-data" method="get">
+<fieldset>
+<legend><h3>Add Images</h3></legend>
+<div class="text label">
+<label for="q">Text or ID</label>
+<input name="q" type="text" id="q" />
+</div>
+<div class="submit">
+<input name="submit" type="submit" value="Go" />
+</div>
+</fieldset>
+</form>
+
+[% IF image_search_rs %]
+<table>
+<tr>
+<th>ID</th>
+<th>&nbsp;</th>
+<th>Category</th>
+<th>Date</th>
+<th>Internal Name</th>
+<th>Alt</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH image IN image_search_rs.all %]
+<tr>
+<td>[% image.id %]</td>
+<td><img src="[% image.url(100,100,'FFFFFF') %]" /></td>
+<td>[% image.category %]</td>
+<td>[% image.date.dmy('/') %]</td>
+<td>[% image.name %]</td>
+<td>[% image.alt %]</td>
+<td>
+<form method="post" action="[% c.uri_for(c.controller.action_for('add'),[article.id, image.id ]) %]">
+<input type="submit" value="Add" />
+</form>
+</td>
+</tr>
+[% END %]
+</table>
+[% END %]

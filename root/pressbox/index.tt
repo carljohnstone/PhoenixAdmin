@@ -1,0 +1,81 @@
+<div class="container-fluid">
+[% SET fixtures = fixtures_rs.all %]
+
+<table class="table table-striped">
+
+<tr>
+<th>Date</th>
+[% FOREACH fixture IN fixtures %]
+<td>[% fixture.date.dmy('/') %]</td>
+[% END %]
+</tr>
+
+<tr>
+<th>Home/Away</th>
+[% FOREACH fixture IN fixtures %]
+<td>[% fixture.homeaway %]</td>
+[% END %]
+</tr>
+
+<tr>
+<th>Opponents</th>
+[% FOREACH fixture IN fixtures %]
+<td>[% fixture.opponent.name | html %]</td>
+[% END %]
+</tr>
+
+[% IF c.check_any_user_role('Admin', 'Upload Pressbox Photos') %]
+<tr>
+<th>Photos</th>
+[% FOREACH fixture IN fixtures %]
+[% photo_count = fixture.pressbox.pressbox_images_rs.count %]
+<td>[% IF photo_count %]([% photo_count %] present) [% END %]<a href="[% c.uri_for('/admin/pressbox/' _ fixture.id _ '/upload_photo') %]">Upload Photo</a></td>
+[% END %]
+</tr>
+[% END %]
+
+[% IF c.check_any_user_role('Admin', 'Upload Pressbox Audio') %]
+<tr>
+<th>Audio</th>
+[% FOREACH fixture IN fixtures %]
+[% audio_count = fixture.pressbox.pressbox_audios_rs.count %]
+<td>[% IF audio_count %]([% audio_count %] present) [% END %]<a href="[% c.uri_for('/admin/pressbox/' _ fixture.id _ '/upload_audio') %]">Upload Audio</a></td>
+[% END %]
+</tr>
+[% END %]
+
+[% IF c.check_any_user_role('Admin', 'Link Pressbox Video') %]
+<tr>
+<th>Video</th>
+[% FOREACH fixture IN fixtures %]
+[% video_count = fixture.pressbox.pressbox_videos_rs.count %]
+<td>[% IF video_count %]([% video_count %] present) [% END %]<a href="[% c.uri_for('/admin/pressbox/' _ fixture.id _ '/link_video') %]">Link Video</a></td>
+[% END %]
+</tr>
+[% END %]
+
+<tr>
+<th>One-line summary</th>
+[% FOREACH fixture IN fixtures %]
+<td>[% fixture.pressbox.match_summary | html %]</td>
+[% END %]
+</tr>
+
+<tr>
+<th>Match Report</th>
+[% FOREACH fixture IN fixtures %]
+<td>[% fixture.pressbox.match_report %]</td>
+[% END %]
+</tr>
+
+[% IF c.check_any_user_role('Admin', 'Edit Pressbox Details') %]
+<tr>
+<th>&nbsp;</th>
+[% FOREACH fixture IN fixtures %]
+<td><a href="[% c.uri_for('/admin/pressbox/' _ fixture.id _ '/edit') %]">Edit</a></td>
+[% END %]
+</tr>
+[% END %]
+
+</table>
+</div>

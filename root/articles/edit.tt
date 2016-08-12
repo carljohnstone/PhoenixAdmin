@@ -1,0 +1,26 @@
+<div class="container-fluid">
+<p><strong>ID</strong> - The Unique Identifier (ID) or reference for this
+article, this is automatically generated and cannot be edited. You've
+probably already spotted them in the URLs for articles.</p>
+
+<p><strong>Section</strong> - news is used for news about the club, features
+for events/interviews/WC etc.</p>
+
+<p><strong>Headline</strong> - don't use all caps, it will automatically be
+transformed where needed.</p>
+
+<p><strong>Teaser</strong> - used on index pages and in feeds. As the name
+suggests it's aim is to tease people into reading the full article.</p>
+
+<p><strong>Publication date</strong> - setting a date/time in the future will
+embargo the article until then.</p>
+
+<p><strong>Main text</strong> - copying and pasting directly from Word *may*
+mess up the site fonts. Paste via notepad to clean-up styles.</p>
+
+<p><strong>Published</strong> - unticking this box will completely stop the
+article from appearing on the site. Note that mostly we just let them age and
+live in the archive.</p>
+[% SET ckeditor = 1 %]
+[% form %]
+</div>

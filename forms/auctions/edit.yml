@@ -1,0 +1,61 @@
+---
+auto_fieldset:
+  legend: '<h3>Upload an Auction item</h3>'
+
+elements:
+  - type: Text
+    id: id
+    name: id
+    label: ID
+    model_config:
+      read_only: 1
+      ignore_if_empty: 1
+    add_attributes:
+      readonly: readonly
+  - type: Text
+    id: title
+    name: title
+    label: Title
+  - type: DateTime
+    name: starts
+    label: Start date and time
+    default_natural: 'now'
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+    year:
+      less: 1
+      plus: 1
+  - type: DateTime
+    name: expires
+    label: End date and time
+    default_natural: '7 days from now'
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+    year:
+      less: 1
+      plus: 1
+  - type: Textarea
+    id: body
+    name: body
+    label: Description of item
+  - type: Text
+    id: image
+    name: image
+    label: ID of image to use
+    model_config:
+      ignore_if_empty: 1
+    default: 511
+  - type: Text
+    id: reserve_amount
+    name: reserve_amount
+    label: Value of reserve bid
+    default: '0.00'
+  - type: Submit
+    name: submit
+    value: Save
+filters:
+  - TrimEdges

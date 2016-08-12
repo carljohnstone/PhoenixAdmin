@@ -1,0 +1,7 @@
+<h1>[% article.headline %]</h1>
+
+<h2>Edit Details</h2>
+
+<img src="[% article_image.related_image.url(300,300,'FFFFFF') %]" />
+
+[% form %]

@@ -1,0 +1,5 @@
+<img src="[% image.url(300,300,'FFFFFF') %]" />
+
+[% form %]
+
+<p><strong>Note</strong> changing the caption here will not change any articles.</p>

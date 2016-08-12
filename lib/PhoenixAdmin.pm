@@ -42,8 +42,9 @@ our $VERSION = '0.01';
 
 __PACKAGE__->config(
     'name' => 'PhoenixAdmin',
+    'default_view' => 'TT',
     # Disable deprecated behavior needed by old applications
-    'disable_component_resolution_regex_fallback' => 1,
+#    'disable_component_resolution_regex_fallback' => 1,
     'Controller::HTML::FormFu' => {'constructor' => { 'config_file_path' => __PACKAGE__->path_to('forms')}},
     'session' => {
         'expires' => '1209600',
@@ -66,8 +67,7 @@ __PACKAGE__->config(
                 'role_field' => 'role',
             },
         },
-    }
-
+    },
 );
 
 # Start the application

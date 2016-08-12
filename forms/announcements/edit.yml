@@ -1,0 +1,80 @@
+---
+auto_fieldset:
+  legend: '<h3>Upload an Announcement</h3>'
+
+elements:
+  - type: Text
+    id: id
+    name: id
+    label: ID
+    model_config:
+      read_only: 1
+    add_attributes:
+      readonly: readonly
+  - type: Text
+    id: title
+    name: title
+    label: Heading
+  - type: Textarea
+    id: body
+    name: body
+    label: Body
+    container_attrs:
+      class: ckeditor
+    attrs:
+      class: ckeditor
+  - type: DateTime
+    name: start_date
+    label: Start date and time
+    default_natural: 'now'
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+    year:
+      less: 1
+      plus: 1
+  - type: Number
+    name: start_priority
+    id: start_priority
+    label: Start Priority
+    default: 1.00
+    locale: en_GB
+    precision: 2
+    trailing_zeroes: 1
+    attributes:
+        min: 0
+        max: 1
+        step: 0.01
+    validators:
+        - type: 'Phoenix::Priority'
+  - type: DateTime
+    name: end_date
+    label: End date and time
+    default_natural: '1 week from now'
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+    year:
+      less: 1
+      plus: 1
+  - type: Number
+    name: end_priority
+    id: end_priority
+    label: End Priority
+    default: 0.50
+    locale: en_GB
+    precision: 2
+    trailing_zeroes: 1
+    attributes:
+        min: 0
+        max: 1
+        step: 0.01
+    validators:
+        - type: 'Phoenix::Priority'
+  - type: Submit
+    name: submit
+    value: Save
+filters:
+  - TrimEdges

@@ -1,0 +1,18 @@
+---
+auto_fieldset:
+  legend: '<h4>Upload Audio to the Pressbox</h4>'
+
+elements:
+  - type: Text
+    id: label
+    name: label
+    label: Label
+  - type: File
+    id: file
+    name: file
+    label: File
+  - type: Submit
+    name: submit
+    value: Save
+filters: 
+  - TrimEdges

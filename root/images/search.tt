@@ -1,0 +1,22 @@
+<table>
+<tr>
+<th>ID</th>
+<th>&nbsp;</th>
+<th>Category</th>
+<th>Date</th>
+<th>Internal Name</th>
+<th>Alt</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH image IN image_rs.all %]
+<tr>
+<td>[% image.id %]</td>
+<td><img src="[% image.url(100,100,'FFFFFF') %]" /></td>
+<td>[% image.category %]</td>
+<td>[% image.date.dmy('/') %]</td>
+<td>[% image.name %]</td>
+<td>[% image.alt %]</td>
+<td><a href="[% c.uri_for(c.controller.action_for('edit'),[recent_image.id]) %]">Edit Details</a>[% IF c.check_any_user_role('Admin') %] | <a href="[% c.uri_for(c.controller.action_for('reupload'),[recent_image.id]) %]">reupload</a>[% END %]</td>
+</tr>
+[% END %]
+</table>

@@ -1,3 +1,4 @@
 [% SET page_title = 'Manchester Phoenix Site Administration' %]
-
+<div class="container-fluid">
 <h1>Manchester Phoenix Site Administration</h1>
+</div>

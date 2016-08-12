@@ -1,0 +1,18 @@
+<p><strong>Category</strong> - promos are the adverts used on the site.</p>
+
+<p><strong>Internal name</strong> - used within here to allow us to attach
+images to other content. This may contain extra information not used on the
+site, and will never be publically displayed.</p>
+
+<p><strong>Alt</strong> - primarily describes the image for the visually
+impaired. As this should be a good description of the photo, is used for the
+fake filename give to the image.</p>
+
+<p><strong>Suggested caption</strong> - a *suggested* caption to use with the
+image. Note that captions on images should add context so may not be used.</p>
+
+<p><strong>Credit</strong> - photographer/copyright owner. Displayed anywhere
+the image is used. Note whilst we would normally credit match photographers,
+we don't credit official club photos like profile/team photos.</p>
+
+[% form %]

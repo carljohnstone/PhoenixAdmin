@@ -1,0 +1,43 @@
+<div class="container-fluid">
+<h3>Images</h3>
+
+[% IF c.check_any_user_role('Images Upload') %]
+<p><a href="[% c.uri_for(c.controller.action_for('upload')) %]">Upload an image</a></p>
+[% END %]
+
+<form action="[% c.uri_for(c.controller('Admin::Images').action_for('search')) %]" enctype="multipart/form-data" method="get">
+<fieldset>
+<legend><h3>Search</h3></legend>
+<div class="text label">
+<label for="q">Text or ID</label>
+<input name="q" type="text" id="q" />
+</div>
+<div class="submit">
+<input name="submit" type="submit" value="Go" />
+</div>
+</fieldset>
+</form>
+
+<h3>Recent Uploads</h3>
+
+<table class="table table-striped">
+<tr>
+<th>ID</th>
+<th>&nbsp;</th>
+<th>Category</th>
+<th>Date</th>
+<th>Internal Name</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH recent_image IN recent_images_rs.all %]
+<tr>
+<td>[% recent_image.id %]</td>
+<td><img src="[% recent_image.url(100,100,'FFFFFF') %]" /></td>
+<td>[% recent_image.category %]</td>
+<td>[% recent_image.date.dmy('/') %]</td>
+<td>[% recent_image.name %]</td>
+<td><a href="[% c.uri_for(c.controller.action_for('edit'),[recent_image.id]) %]">Edit Details</a>[% IF c.check_any_user_role('Admin') %] | <a href="[% c.uri_for(c.controller.action_for('reupload'),[recent_image.id]) %]">reupload</a>[% END %]</td>
+</tr>
+[% END %]
+</table>
+</div>

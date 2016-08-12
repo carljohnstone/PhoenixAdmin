@@ -1,0 +1,3 @@
+<h2>[% fixture.team %]: [% fixture.homeaway %] [% fixture.date.dmy('/') %] vs [% fixture.opponents %]</h2>
+
+[% form %]

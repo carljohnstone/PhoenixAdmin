@@ -1,0 +1,22 @@
+---
+auto_fieldset:
+  legend: '<h4>Edit pressbox details</h4>'
+
+elements:
+  - type: Text
+    id: match_summary
+    name: match_summary
+    label: One Line Summary
+  - type: Textarea
+    id: match_report
+    name: match_report
+    label: Dedicated Pressbox Match Report
+    container_attrs:
+      class: ckeditor
+    attrs:
+      class: ckeditor
+  - type: Submit
+    name: submit
+    value: Save
+filters: 
+  - TrimEdges

@@ -4,6 +4,9 @@ use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller::HTML::FormFu' }
 
+use Data::Dumper;
+use Email::MIME;
+
 __PACKAGE__->config(namespace => '');
 
 =head1 NAME
@@ -98,17 +101,17 @@ sub audit_log :Private {
             push(@parts, $part);
         }
 
-        $c->email(
+        $c->stash->{'email'} = {
             header => [
                 'To' => 'phoenix@fadetoblack.me.uk',
                 'From' => 'webmaster@manchesterphoenix.co.uk',
                 'Subject' => 'Phoenix Admin: ' . $c->req->uri,
             ],
             parts => \@parts,
-        );
+        };
+        $c->forward( $c->view('Email') );
     }
-
-    return 1;
+    1;
 }
 
 =head2 index

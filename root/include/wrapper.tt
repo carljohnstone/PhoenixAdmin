@@ -9,6 +9,7 @@
               integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="
               crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+[% IF ckeditor %]<script type="text/javascript" src="/static/ckeditor/ckeditor.js"></script>[% END %]
 </head>
 <body>
 [% IF c.user_exists %]

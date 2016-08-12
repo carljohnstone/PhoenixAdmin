@@ -1,0 +1,27 @@
+<h3>Announcements</h3>
+
+<p>Announcements appear on the home page only.</p>
+
+<p>An article should nearly always be used rather than an announcement, as
+articles are archived and appear in all feeds etc. Announcements are
+appropriate for brief, short-term messages.</p>
+
+<p><strong>ID</strong> - The Unique Identifier (ID) or reference for this
+announcement, this is automatically generated and cannot be edited.</p>
+
+<p><strong>Heading</strong> - don't use all caps, it will automatically be
+transformed where needed.</p>
+
+<p><strong>Body</strong> - The main text of the announcement.</p>
+
+<p><strong>Start date</strong> - when the announcement appears on the site.</p>
+
+<p><strong>Start priority</strong> - How far up the home page the announcement
+appears at the start date. From 0 to 1.</p>
+
+<p><strong>End date</strong> - when the announcement goes from the site.</p>
+
+<p><strong>End priority</strong> - How far up the home page the announcement
+appears at the end date. From 0 to 1.</p>
+
+[% form %]

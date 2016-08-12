@@ -1,0 +1,12 @@
+---
+auto_fieldset:
+  legend: '<h3>Re-upload an Image</h3>'
+
+elements:
+  - type: File
+    id: file
+    name: file
+    label: File
+  - type: Submit
+    name: submit
+    value: Save

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+<h3>Announcements</h3>
+
+[% IF c.check_any_user_role('Admin', 'Announcements Upload') %]
+<p><a href="[% c.uri_for(c.controller.action_for('edit'),[0]) %]">Upload a new announcement</a></p>
+[% END %]
+
+<h3>Recent Uploads</h3>
+
+<table class="table table-striped">
+<tr>
+<th>ID</th>
+<th>Heading</th>
+<th>Start Date</th>
+<th>End Date</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH recent_announcement IN recent_announcements_rs.all %]
+<tr>
+<td>[% recent_announcement.id %]</td>
+<td>[% recent_announcement.title %]</td>
+<td>[% recent_announcement.start_date.dmy('/') %] [% recent_announcement.start_date.hms(':') %]</td>
+<td>[% recent_announcement.end_date.dmy('/') %] [% recent_announcement.end_date.hms(':') %]</td>
+<td><a href="[% c.uri_for(c.controller.action_for('edit'),[recent_announcement.id]) %]">Edit announcement</a></td>
+</tr>
+[% END %]
+</table>
+</div>

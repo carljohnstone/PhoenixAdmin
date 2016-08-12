@@ -1,1 +1,28 @@
-Auctions index
+<div class="container-fluid">
+<h3>Auctions</h3>
+
+[% IF c.check_any_user_role('Admin', 'Auctions') %]
+<p><a href="[% c.uri_for(c.controller.action_for('edit'),[0]) %]">Upload a new auction item</a></p>
+[% END %]
+
+<h3>Recent Uploads</h3>
+
+<table class="table table-striped">
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Starts</th>
+<th>Expires</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH recent_auction IN recent_auctions_rs.all %]
+<tr>
+<td>[% recent_auction.id %]</td>
+<td>[% recent_auction.title %]</td>
+<td>[% recent_auction.starts.dmy('/') %] [% recent_article.starts.hms(':') %]</td>
+<td>[% recent_auction.expires.dmy('/') %] [% recent_article.expires.hms(':') %]</td>
+<td>[% IF NOT recent_auction.started %]<a href="[% c.uri_for(c.controller.action_for('edit'),[recent_auction.id]) %]">Edit item</a>[% END %]</td>
+</tr>
+[% END %]
+</table>
+</div>

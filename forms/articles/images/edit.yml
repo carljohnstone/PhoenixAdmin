@@ -1,0 +1,27 @@
+---
+auto_fieldset:
+  legend: '<h3>Edit Caption</h3>'
+
+elements:
+  - type: Text
+    id: caption
+    name: caption
+    label: Caption
+  - type: Number
+    id: order
+    name: order
+    label: 'Position'
+    precision: 0
+    locale: en_GB
+    trailing_zeroes: 0
+    deflators:
+        - type: FormatNumber
+          precision: 0
+          trailing_zeroes: 1
+    constraints:
+        - type: Required
+  - type: Submit
+    name: submit
+    value: Save
+filters:
+  - TrimEdges

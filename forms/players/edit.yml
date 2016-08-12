@@ -1,0 +1,90 @@
+---
+auto_fieldset:
+  legend: '<h3>Edit Player</h3>'
+
+elements:
+  - type: Text
+    id: id
+    name: id
+    label: ID
+    model_config:
+      read_only: 1
+    add_attributes:
+      readonly: readonly
+  - type: Text
+    id: firstname
+    name: firstname
+    label: First Name
+  - type: Text
+    id: lastname
+    name: lastname
+    label: Last Name
+  - type: Checkbox
+    id: hide_lastname
+    name: hide_lastname
+    label: Hide Lastname
+    default: 0
+  - type: Select
+    id: position
+    name: position
+    label: Position
+    options:
+      - [ '' , '<Unknown>' ]
+      - [ 'Netminder', 'Netminder' ]
+      - [ 'Defence', 'Defence' ]
+      - [ 'Forward', 'Forward' ]
+    model_config:
+      null_if_empty: 1
+  - type: Date
+    name: dob
+    label: Date of birth
+    day:
+      prefix: "- Day -"
+    month:
+      prefix: "- Month -"
+    year:
+      prefix: "- Year -"
+      less: 60
+      plus: 0
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+  - type: Text
+    id: hometown
+    name: hometown
+    label: Home Town
+    model_config:
+      null_if_empty: 1
+  - type: Number
+    id: height
+    name: height
+    label: Height (cm)
+  - type: Number
+    id: weight
+    name: weight
+    label: Weight (kg)
+  - type: Select
+    id: handed
+    name: handed
+    label: Handed
+    options:
+      - [ '' , '<Unknown>' ]
+      - [ 'Left', 'Left' ]
+      - [ 'Right', 'Right' ]
+    model_config:
+      null_if_empty: 1
+  - type: Textarea
+    id: text
+    name: text
+    label: Text
+    container_attrs:
+      class: ckeditor
+    attrs:
+      class: ckeditor
+
+  - type: Submit
+    name: submit
+    value: Save
+filters: 
+  - TrimEdges

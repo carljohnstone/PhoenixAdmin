@@ -1,0 +1,36 @@
+---
+auto_fieldset:
+  legend: '<h3>Edit the result</h3>'
+
+elements:
+  - type: Text
+    id: phoenixscore
+    name: phoenixscore
+    label: Phoenix Score
+    model_config:
+      null_if_empty: 1
+  - type: Text
+    id: opponentscore
+    name: opponentscore
+    label: Opponent Score
+    model_config:
+      null_if_empty: 1
+  - type: Checkbox
+    id: overtime
+    name: overtime
+    label: Overtime
+  - type: Checkbox
+    id: penalties
+    name: penalties
+    label: Penalties
+  - type: Text
+    id: match_report
+    name: match_report
+    label: ID of Match Report
+    model_config:
+      null_if_empty: 1
+  - type: Submit
+    name: submit
+    value: Save
+filters:
+  - TrimEdges

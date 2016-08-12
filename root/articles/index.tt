@@ -1,1 +1,28 @@
-Articles index
+<div class="container-fluid">
+<h3>Articles</h3>
+
+[% IF c.check_any_user_role('Admin', 'Articles Upload') %]
+<p><a href="[% c.uri_for(c.controller.action_for('edit'),[0]) %]">Upload a new article</a></p>
+[% END %]
+
+<h3>Recent Uploads</h3>
+
+<table class="table table-striped">
+<tr>
+<th>ID</th>
+<th>Headline</th>
+<th>Section</th>
+<th>Date</th>
+<th>&nbsp;</th>
+</tr>
+[% FOREACH recent_article IN recent_articles_rs.all %]
+<tr>
+<td>[% recent_article.id %]</td>
+<td>[% recent_article.headline %]</td>
+<td>[% recent_article.section %]</td>
+<td>[% recent_article.publication_date.dmy('/') %] [% recent_article.publication_date.hms(':') %]</td>
+<td><a href="[% c.uri_for(c.controller.action_for('edit'),[recent_article.id]) %]">Edit article</a> | <a href="[% c.uri_for(c.controller('Articles::Images').action_for('index'),[recent_article.id]) %]">Edit images</a></td>
+</tr>
+[% END %]
+</table>
+</div>

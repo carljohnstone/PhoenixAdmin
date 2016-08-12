@@ -1,0 +1,50 @@
+---
+auto_fieldset:
+  legend: '<h4>Edit Podcast entry</h4>'
+
+elements:
+  - type: Text
+    id: id
+    name: id
+    label: ID
+    model_config:
+      read_only: 1
+    add_attributes:
+      readonly: readonly
+  - type: Text
+    id: title
+    name: title
+    label: Title
+  - type: DateTime
+    name: date
+    label: Date
+    default_natural: 'now'
+    default_datetime_args:
+      set_time_zone: 'Europe/London'
+      locale: 'en_GB'
+    auto_inflate: 1
+    year:
+      less: 5
+      plus: 1
+  - type: Textarea
+    id: text
+    name: text
+    label: Text
+    container_attrs:
+      class: ckeditor
+    attrs:
+      class: ckeditor
+  - type: Text
+    id: audio_url
+    name: audio_url
+    label: Audio URL
+  - type: Checkbox
+    id: published
+    name: published
+    label: Published
+    default: 1
+  - type: Submit
+    name: submit
+    value: Save
+filters:
+  - TrimEdges

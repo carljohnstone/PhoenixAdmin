@@ -1,0 +1,22 @@
+---
+auto_fieldset:
+  legend: '<h4>Link a video to the Pressbox</h4>'
+
+elements:
+  - type: Text
+    id: label
+    name: label
+    label: Label
+  - type: Text
+    id: size
+    name: size
+    label: Size in MB
+  - type: Text
+    id: url
+    name: url
+    label: URL
+  - type: Submit
+    name: submit
+    value: Save
+filters: 
+  - TrimEdges

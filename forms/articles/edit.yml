@@ -1,0 +1,211 @@
+---
+auto_fieldset:
+  legend: 'Upload an Article'
+attributes:
+  class: form-horizontal
+
+elements:
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: ID
+        attributes:
+          for: id
+          class: "col-sm-2 control-label"
+      - type: Text
+        name: id
+        id: id
+        model_config:
+          read_only: 1
+        attributes:
+          class: "form-control"
+          readonly: readonly
+        container_attributes:
+          class: "col-sm-10"
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Section
+        attributes:
+          for: section
+          class: "col-sm-2 control-label"
+      - type: Select
+        name: section
+        id: section
+        options:
+          - [ 'news', 'News' ]
+          - [ 'features', 'Features' ]
+          - [ 'events', 'Events' ]
+          - [ 'rink-stamp', 'Rink Stamp' ]
+          - [ 'about', 'About' ]
+          - [ 'nihl', 'NIHL' ]
+          - [ 'juniors', 'Juniors' ]
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Headline
+        attributes:
+          for: headline
+          class: "col-sm-2 control-label"
+      - type: Text
+        name: headline
+        id: headline
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Teaser
+        attributes:
+          for: teaser
+          class: "col-sm-2 control-label"
+      - type: Textarea
+        name: teaser
+        id: teaser
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Publication date and time
+        attributes:
+          for: publication_date
+          class: "col-sm-2 control-label"
+      - type: DateTime
+        name: publication_date
+        id: publication_date
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
+        default_natural: 'now'
+        default_datetime_args:
+          set_time_zone: 'Europe/London'
+          locale: 'en_GB'
+        auto_inflate: 1
+        year:
+          less: 1
+          plus: 1
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Main Text of Article
+        attributes:
+          for: bodytext
+          class: "col-sm-2 control-label"
+      - type: Textarea
+        name: bodytext
+        id: bodytext
+        attributes:
+          class: "form-control ckeditor"
+        container_attributes:
+          class: "col-sm-10"
+
+#  - type: Textarea
+#    id: bodytext
+#    name: bodytext
+#    label: Main Text of Article
+#    container_attrs:
+#      class: ckeditor
+#    attrs:
+#      class: ckeditor
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Published
+        attributes:
+          for: published
+          class: "col-sm-2 control-label"
+      - type: Checkbox
+        name: published
+        id: published
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
+        default: 1
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Label
+        tag: label
+        value: Automatically show on homepage
+        attributes:
+          for: show_on_homepage
+          class: "col-sm-2 control-label"
+      - type: Checkbox
+        name: show_on_homepage
+        id: show_on_homepage
+        attributes:
+          class: "form-control"
+        container_attributes:
+          class: "col-sm-10"
+        default: 1
+
+#  - type: Checkbox
+#    id: published
+#    name: published
+#    label: Published
+#    default: 1
+#  - type: Checkbox
+#    id: show_on_homepage
+#    name: show_on_homepage
+#    label: Automatically show on homepage
+#    default: 1
+
+  - type: Block
+    attributes:
+      class: "form-group"
+    elements:
+      - type: Submit
+        name: submit
+        value: Save
+        attributes:
+          class: "btn btn-default"
+        container_attributes:
+          class: col-sm-offset-2 col-sm-10
+
+#  - type: Submit
+#    name: submit
+#    value: Save
+filters:
+  - TrimEdges
+
+#load_config_file: base.yml

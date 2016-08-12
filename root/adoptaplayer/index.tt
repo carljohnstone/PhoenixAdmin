@@ -1,0 +1,19 @@
+<div class="container-fluid">
+<h3>Adopt a Player</h3>
+
+[% FOREACH roster IN rosters.all %]
+  <h4>[% roster.team %]</h4>
+  <table class="table table-striped">
+    <tr>
+    <th>Player</th>
+    <th>&nbsp;</th>
+    </tr>
+  [% FOREACH rosterplayer IN roster.roster_players %]
+    <tr>
+      <td>[% rosterplayer.player.full_name %]</td>
+      <td><a href="[% c.uri_for(c.controller.action_for('edit'),[rosterplayer.player.id]) %]">Edit adoptions</a></td>
+    </tr>
+  [% END %]
+  </table>
+[% END %]
+</div>

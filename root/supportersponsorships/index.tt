@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<h2>Manage Supporter Sponsorships</h2>
+
+[% WRAPPER inc/twocol.tt %]
+
+<p> Edit Packages
+
+<table class="table table-striped">
+[% FOREACH package IN packages.all -%]
+<tr>
+<th>[% package.name | html %]</th>
+<td>[% package.description %]</td>
+<td>&pound;[% package.price %]</td>
+</tr>
+[% END %]
+</table>
+
+[% secondcolcontent = BLOCK %]
+
+<p>Edit sponsors for players.</p>
+<ul>
+[% FOREACH player IN players.all -%]
+<li><a href="player/[% player.id %]">#[% player.roster_players.shirt_number %] - [% player.full_name | html %]</a></li>
+[% END %]
+</ul>
+
+[% END # Second Column %]
+
+[% END # Wrapper %]
+</div>

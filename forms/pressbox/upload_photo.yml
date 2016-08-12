@@ -1,0 +1,22 @@
+---
+auto_fieldset:
+  legend: '<h4>Upload a Photo to the Pressbox</h4>'
+
+elements:
+  - type: Text
+    id: caption
+    name: caption
+    label: Caption
+  - type: Text
+    id: credit
+    name: credit
+    label: Credit
+  - type: File
+    id: file
+    name: file
+    label: File
+  - type: Submit
+    name: submit
+    value: Save
+filters: 
+  - TrimEdges
